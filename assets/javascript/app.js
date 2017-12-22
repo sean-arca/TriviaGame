@@ -1,4 +1,52 @@
+var currentQ;
+var rightAnswer;
+var wrongAnswer;
+var noAnswer;
+var answered;
+var time;
 
+
+var triviaQs = [{
+    question: "Which of these names starting with a V is actually a reindeer?",
+    answerChoices: ["Venti", "Volly", "Vicki", "Vixen"],
+    answer: 3
+},{
+    question: "All I want for Christmas is my...?",
+    answerChoices: ["Own Big House", "Two Front Teeth", "Little Brown Dog", "Shiny New Boots"],
+    answer: 1
+},{
+    question: "What should you do under a mistletoe?",
+    answerChoices: ["Give a Hug", "Dance", "Give a Kiss", "Spin Around"],
+    answer: 2
+},{
+    question: "What is Santa's real name?",
+    answerChoices: ["Michael Holly", "Chris Krinkle", "Kris Kringle", "Mike Jolly"],
+    answer: 2
+},{
+    question: "How many reindeers did Santa's sleigh have?",
+    answerChoices: ["7", "8", "9", "10"],
+    answer: 1
+},{
+    question: "Which of these reindeers do not belong?",
+    answerChoices: ["Rufus", "Dasher", "Prancer", "Comet"],
+    answer: 0
+},{
+    question: "What should kids leave out for Santa on Christmas Eve?",
+    answerChoices: ["A Bottle of Wine", "A PB & J Sandwich", "Cookies & Milk", "Mac & Cheese"],
+    answer: 2
+},{
+    question: "What is Frosty the Snowman's nose made out of?",
+    answerChoices: ["A Carrot", "A Potato", "A Rock", "A Button"],
+    answer: 3
+},{
+    question: "What color is the Grinch?",
+    answerChoices: ["Green", "Blue", "Red", "Yellow"],
+    answer: 0
+},{
+    question: "Which Christmas ballet is the most famous of all?",
+    answerChoices: ["Rudolphs Surprise", "The Nutcracker", "Mr & Mrs Clause", "Frosty Goes to New York"],
+    answer: 1
+}];
 
 
 
