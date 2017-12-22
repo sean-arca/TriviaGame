@@ -1,10 +1,17 @@
+// -- Global Variables --
 var currentQ;
 var rightAnswer;
 var wrongAnswer;
 var noAnswer;
 var answered;
 var time;
-
+var gifsArray = ['question1', 'question2', 'question3', 'question4', 'question5', 'question6', 'question7', 'question8', 'question9', 'question10'];
+var messages = {
+    right: "You got it! Keep on sleighin!",
+    wrong: "No, sorry that's not it!",
+    noTime: "You're out of time!",
+    finished: "Ho Ho Ho, You've answered them all! Let's see how you did."
+}
 
 var triviaQs = [{
     question: "Which of these names starting with a V is actually a reindeer?",
