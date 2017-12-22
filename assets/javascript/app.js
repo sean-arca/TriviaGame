@@ -5,6 +5,8 @@ var wrongAnswer;
 var noAnswer;
 var answered;
 var time;
+var seconds;
+var userPick;
 var gifsArray = ['question1', 'question2', 'question3', 'question4', 'question5', 'question6', 'question7', 'question8', 'question9', 'question10'];
 var messages = {
     right: "You got it! Keep on sleighin!",
@@ -13,6 +15,7 @@ var messages = {
     finished: "Ho Ho Ho, You've answered them all! Let's see how you did."
 }
 
+// -- Questions --
 var triviaQs = [{
     question: "Which of these names starting with a V is actually a reindeer?",
     answerChoices: ["Venti", "Volly", "Vicki", "Vixen"],
