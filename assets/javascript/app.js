@@ -112,9 +112,32 @@ function newQuestion(){
         // Stop the time Interval (use clearInterval())
         clearInterval(time);
         // Show answer function
-		answerScreen();
+		showAnswer();
 	});
-}
+};
+
+// Countdown timer
+function countdown() {
+    seconds = 15;
+    // Add html (use .html()) to show the timeleft
+    $('#timeRem').html('<h3>Time Remaining: ' + seconds + ' seconds</h3>');
+    // Set the time variable to go down every second
+    time = setInterval(showCountdown, 1000);
+    // Set answered boolean to true
+    answered = true;
+};
+
+function showCountdown() {
+    seconds--;
+    // Change html (use .html()) for time remaining
+    $('#timeRem').html('<h3>Time Remaining: ' + seconds + ' seconds</h3>');
+    // If seconds seconds < 1, set answered boolean to false and show answer function
+    if (seconds < 1) {
+        answered = false;
+        clearInterval(time);
+        showAnswer();
+    }
+};
 
 
 
