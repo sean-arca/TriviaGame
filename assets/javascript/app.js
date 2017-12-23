@@ -58,8 +58,63 @@ var triviaQs = [{
     answer: 1
 }];
 
+// -- Functions --
 
+// New Game
+function newGame(){
+	$('#endMessage').empty();
+	$('#numberCorrect').empty();
+	$('#numberWrong').empty();
+	$('#noAnswer').empty();
+	currentQ = 0;
+	rightAnswer = 0;
+	wrongAnswer = 0;
+	noAnswer = 0;
+	newQuestion();
+};
 
+// On Click Start
+$('#startBtn').on('click', function(){
+	$(this).hide();
+	newGame();
+});
+
+// New Question
+function newQuestion(){
+	$('#message').empty();
+	$('#correctAnswer').empty();
+	$('#answerImg').empty();
+	answered = true;
+	
+	// Add question# and question to div (use .html)
+	$('#theQuestion').html('Question # '+(currentQ+1)+' of '+triviaQs.length);
+    $('.question').html('<h2>' + triviaQs[currentQ].question + '</h2>');
+    // Create a for loop to go thru question answers
+	for (var i = 0; i < 4; i++) {
+        // Create div for each answer
+        var choices = $('<div>');
+        // Add text (use .text()) to show the answerChoices in each div
+        choices.text(triviaQs[currentQ].answerChoices[i]);
+        // Add custom attribute ('data-answer') to each answer
+        choices.attr({'data-answer': i });
+        // Add class ('thisChoice') to divs
+        choices.addClass('thisChoice');
+        // Append the choice divs to the .answers div
+		$('.answers').append(choices);
+    }
+    // Start countdown when question is shown
+    countdown();
+    
+	// When one of answers is clicked...
+	$('.thisChoice').on('click',function(){
+        // Set userPick to what was chosen via the div
+        userPick = $(this).data('answer');
+        // Stop the time Interval (use clearInterval())
+        clearInterval(time);
+        // Show answer function
+		answerScreen();
+	});
+}
 
 
 
