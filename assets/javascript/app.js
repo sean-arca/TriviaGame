@@ -89,7 +89,7 @@ function newQuestion(){
 	answered = true;
 	
 	// Add question# and question to div (use .html)
-	$('#questionNum').html('Question # '+(currentQ+1)+' of '+triviaQs.length);
+	$('#questionNum').html('<h2>Question # '+(currentQ+1)+' of '+triviaQs.length + '</h2>');
     $('.question').html('<h2>' + triviaQs[currentQ].question + '</h2>');
     // Create a for loop to go thru question answers
 	for (var i = 0; i < 4; i++) {
@@ -157,7 +157,7 @@ function showAnswer() {
     // Show Image
     $('#answerImg').html('<img src = "./assets/images/'+ gifsArray[currentQ] +'.gif" width = "300px">');
 
-    // If statement to check answers
+    // If statement to check answers and show message (user .html)
 	if ((userPick === rightAnswerIndex) && (answered === true)) {
 		rightAnswer++;
 		$('#message').html('<h2>' + messages.right + '</h2>');
@@ -181,10 +181,22 @@ function showAnswer() {
 		currentQ++;
 		setTimeout(newQuestion, 5000);
 	}	
-
-
 };
 
+function scoreboard() {
+	$('#timeRem').empty();
+	$('#message').empty();
+	$('#correctAnswer').empty();
+	$('#answerImg').empty();
+
+	$('#endMessage').html('<h2>' + messages.finished + '</h2>');
+	$('#numberCorrect').html('<h2>Correct Answers: ' + rightAnswer + '</h2>');
+	$('#numberWrong').html('<h2>Incorrect Answers: ' + wrongAnswer + '</h2>');
+	$('#noAnswer').html('<h2>Unanswered: ' + noAnswer + '</h2>');
+	$('#startBtn').addClass('reset');
+	$('#startBtn').show();
+	$('#startBtn').html('Start Over?');
+}
 
 
 
