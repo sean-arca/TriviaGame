@@ -84,6 +84,11 @@ body {
     background-color: white;
 }
 
+.answers div {
+-webkit-transition-duration: 0.2s; /* Safari */
+transition-duration: 0.2s;
+}
+
 .answers div, #message h2, #endMessage h2 {
     font-family: 'Khula', sans-serif;
     font-size: 2em;
