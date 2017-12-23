@@ -58,3 +58,42 @@ body {
     background-color: #caa451;
     border: solid 2px white;
 }
+
+/* Questions */
+#theQuestion {
+    font-family: 'Khula', sans-serif;
+    font-size: 2em;
+    text-align: center;
+    color: #868686;
+    border: 2px solid #caa451;
+    width: 30%;
+    padding:10px;
+    margin: 10px auto;
+}
+
+.question h2 {
+    font-family: 'Cardo', serif;
+    font-size: 3em;
+    text-align: center;
+    color: #caa451;
+    padding:10px;
+    margin: 20px auto;
+    background-color: white;
+}
+
+.answers div {
+    font-family: 'Khula', sans-serif;
+    font-size: 2em;
+    text-align: center;
+    color: #868686;
+    border: 2px solid #caa451;
+    background-color:white;
+    width: 100%;
+    padding:10px 10px 5px 10px;
+    margin: 5px auto;
+}
+
+.answers div:hover {
+    color: white;
+    background-color:#caa451;
+}
