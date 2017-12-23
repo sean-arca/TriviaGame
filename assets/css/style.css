@@ -59,8 +59,8 @@ body {
     border: solid 2px white;
 }
 
-/* Questions */
-#theQuestion {
+/* Questions & Answers */
+#questionNum {
     font-family: 'Khula', sans-serif;
     font-size: 2em;
     text-align: center;
@@ -71,7 +71,7 @@ body {
     margin: 10px auto;
 }
 
-.question h2 {
+.question, #correctAnswer h2 {
     font-family: 'Cardo', serif;
     font-size: 2.8em;
     text-align: center;
@@ -81,7 +81,7 @@ body {
     background-color: white;
 }
 
-.answers div {
+.answers div, #message h2 {
     font-family: 'Khula', sans-serif;
     font-size: 2em;
     text-align: center;

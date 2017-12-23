@@ -13,7 +13,7 @@ var messages = {
     wrong: "No, sorry that's not it!",
     noTime: "You're out of time!",
     finished: "Ho Ho Ho, You've answered them all! Let's see how you did."
-}
+};
 
 // -- Questions --
 var triviaQs = [{
@@ -83,11 +83,13 @@ $('#startBtn').on('click', function(){
 function newQuestion(){
 	$('#message').empty();
 	$('#correctAnswer').empty();
-	$('#answerImg').empty();
+    $('#answerImg').empty();
+    $('#questionNum').show();
+    $('#timeRem').show();
 	answered = true;
 	
 	// Add question# and question to div (use .html)
-	$('#theQuestion').html('Question # '+(currentQ+1)+' of '+triviaQs.length);
+	$('#questionNum').html('Question # '+(currentQ+1)+' of '+triviaQs.length);
     $('.question').html('<h2>' + triviaQs[currentQ].question + '</h2>');
     // Create a for loop to go thru question answers
 	for (var i = 0; i < 4; i++) {
@@ -137,6 +139,50 @@ function showCountdown() {
         clearInterval(time);
         showAnswer();
     }
+};
+
+// Answers
+function showAnswer() {
+    // Empty divs
+    $('#questionNum').hide();
+    $('#timeRem').hide();
+	$('.thisChoice').empty();
+    $('.question').empty();
+    $('.answers').empty();
+    
+    // Show Answer
+    var rightAnswerText = triviaQs[currentQ].answerChoices[triviaQs[currentQ].answer];
+    var rightAnswerIndex = triviaQs[currentQ].answer;
+    
+    // Show Image
+    $('#answerImg').html('<img src = "./assets/images/'+ gifsArray[currentQ] +'.gif" width = "300px">');
+
+    // If statement to check answers
+	if ((userPick === rightAnswerIndex) && (answered === true)) {
+		rightAnswer++;
+		$('#message').html('<h2>' + messages.right + '</h2>');
+	} else if ((userPick !== rightAnswerIndex) && (answered === true)) {
+		wrongAnswer++;
+		$('#message').html('<h2>' + messages.wrong + '</h2>');
+		$('#correctAnswer').html('<h2>The correct answer was: ' + rightAnswerText + '</h2>');
+	} else {
+		noAnswer++;
+		$('#message').html('<h2>' + messages.noTime + '</h2>');
+		$('#correctAnswer').html('<h2>The correct answer was: ' + rightAnswerText + '</h2>');
+		answered = true;
+	}
+    
+    // Show scoreboard (if currentQ = triviaQ.length-1)
+	if (currentQ === (triviaQs.length-1)) {
+		setTimeout(scoreboard, 5000)
+    } 
+    // Go to next question
+    else { 
+		currentQ++;
+		setTimeout(newQuestion, 5000);
+	}	
+
+
 };
 
 
